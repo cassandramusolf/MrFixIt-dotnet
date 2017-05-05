@@ -218,6 +218,8 @@ C:\Users\Cassie\Desktop\MrFixIt-dotnet\src\MrFixIt\Controllers\JobsController.cs
 C:\Users\Cassie\Desktop\MrFixIt-dotnet\src\MrFixIt\Controllers\WorkersController.cs
 C:\Users\Cassie\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20161206233149_Initial.cs
 C:\Users\Cassie\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20161206233149_Initial.Designer.cs
+C:\Users\Cassie\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20170505182434_ChangePendingToActive.cs
+C:\Users\Cassie\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\20170505182434_ChangePendingToActive.Designer.cs
 C:\Users\Cassie\Desktop\MrFixIt-dotnet\src\MrFixIt\Migrations\MrFixItContextModelSnapshot.cs
 C:\Users\Cassie\Desktop\MrFixIt-dotnet\src\MrFixIt\Models\ApplicationUser.cs
 C:\Users\Cassie\Desktop\MrFixIt-dotnet\src\MrFixIt\Models\Job.cs

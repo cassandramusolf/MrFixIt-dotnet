@@ -13,9 +13,12 @@
         <h3>Your Current Jobs:</h3>
         @foreach (var Job in Model.Jobs)
         {
-            <h5>@Job.Title</h5>
+            <h5>@Job.Title <button class="completed">Mark Completed</button></h5>
 
         }
+
+        <div id="result1"></div>
+
         @if (Model.Avaliable)
         {
             <h2>Please @Html.ActionLink("select a job", "Index", "Jobs").</h2>

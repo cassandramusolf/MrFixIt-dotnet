@@ -1,4 +1,4 @@
-﻿//$(document).ready(function () {
+﻿$(document).ready(function () {
 //    $(".click-claim").click(function () {
 //        $.ajax({
 //            type: 'POST',
@@ -10,5 +10,24 @@
 //                $('#results').html(resultMessage);
 //            }
 //        });
-//    });
-//});
+    //    });
+
+    //$(".completed").submit(function () {
+    //    $.ajax({
+    //        type: 'POST',
+    //        url: 'JOBS/' 
+    //    })
+    //})
+
+    $('.completed').click(function () {
+        $.ajax({
+            type: 'GET',
+            dataType: 'html',
+            url: 'Jobs/Completed',
+            success: function (result) {
+                $('#result1').html(result);
+            }
+        });
+    });
+
+});

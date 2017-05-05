@@ -48,5 +48,10 @@ namespace MrFixIt.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Completed()
+        {
+            return Content("Hello from the controller!", "text/plain");
+        }
     }
 }
