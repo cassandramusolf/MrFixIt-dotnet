@@ -6,15 +6,13 @@ using Microsoft.AspNetCore.Mvc;
 using MrFixIt.Models;
 using Microsoft.EntityFrameworkCore;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace MrFixIt.Controllers
 {
     public class JobsController : Controller
     {
         private MrFixItContext db = new MrFixItContext();
 
-        // GET: /<controller>/
+        //Return the Index view with a list of jobs including the worker if the job is claimed.
         public IActionResult Index()
         {
             return View(db.Jobs.Include(i => i.Worker).ToList());
@@ -25,6 +23,7 @@ namespace MrFixIt.Controllers
             return View();
         }
 
+        //Create a new job and save to the database.
         [HttpPost]
         public IActionResult Create(Job job)
         {
@@ -33,12 +32,14 @@ namespace MrFixIt.Controllers
             return RedirectToAction("Index");
         }
 
+        //Return view of the job that was clicked on
         public IActionResult Claim(int id)
         {
             var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
             return View(thisItem);
         }
 
+        //Add claimed job to specific worker and save
         [HttpPost]
         public IActionResult Claim(Job job)
         {
