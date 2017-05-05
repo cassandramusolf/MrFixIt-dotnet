@@ -12,14 +12,14 @@
 
     <label for="newActive">Active:</label>
     <select type="text" name="newActive" value="@Model.Active">
-        <option value="True">Active</option>
         <option value="False">Inactive</option>
+        <option value="True">Active</option>
     </select>
     <br />
     <label for="newCompleted"> Completed:</label>
-    <select type="text" name="newCompleted" value="@Model.Active">
-        <option value="True">Completed</option>
+    <select type="text" name="newCompleted" value="@Model.Completed">
         <option value="False">Incomplete</option>
+        <option value="True">Completed</option>
     </select>
         <br />
         <button type="submit" class="edit-job">Submit</button>

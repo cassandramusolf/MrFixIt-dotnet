@@ -10,14 +10,43 @@
     <div class="text-center">
         <h4>Hello Worker @Model.FirstName @Model.LastName. You are Logged In</h4>
         <h3>Your Current Jobs:</h3>
+        <br>
         @foreach (var Job in Model.Jobs)
         {
-            <h5>@Job.Title</h5>
+
+            <h4>
+                <strong>
+                    @Job.Title
+                </strong>
+            </h4>
+
+            if (@Job.Completed == true)
+            {
+                <h5>Completed</h5>
+
+            }
+            else
+            {
+                <h5>Incomplete</h5>
+
+            }
+
+            if (@Job.Active == true)
+            {
+                <h5>Active</h5>
+
+            }
+            else
+            {
+                <h5>Inactive</h5>
+
+            }
+            <button class="edit-form" value="@Job.JobId">Edit Status </button>
+            <hr />
 
         }
 
         <div class="return-edit"></div>
-        <div id="result1"></div>
 
         @if (Model.Avaliable)
         {
