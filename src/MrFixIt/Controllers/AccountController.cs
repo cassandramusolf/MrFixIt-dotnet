@@ -7,8 +7,6 @@ using MrFixIt.Models;
 using Microsoft.AspNetCore.Identity;
 using MrFixIt.ViewModels;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace MrFixIt.Controllers
 {
     public class AccountController : Controller
@@ -28,11 +26,7 @@ namespace MrFixIt.Controllers
             _db = db;
         }
 
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
-
+        //Check to see if user is logged in and return their information on the Index page if they are.
         public IActionResult Index()
         {
             if (User.Identity.IsAuthenticated)
@@ -46,12 +40,13 @@ namespace MrFixIt.Controllers
             }
         }
 
-
+        //Return the Register view.
         public IActionResult Register()
         {
             return View();
         }
 
+        //Register a new user with authentication and return to the index page if it was successful.
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -72,6 +67,7 @@ namespace MrFixIt.Controllers
             return View();
         }
 
+        //Login page using Identity authentication - Go to Index page if login is successful
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
@@ -86,6 +82,7 @@ namespace MrFixIt.Controllers
             }
         }
 
+        //User logout
         [HttpGet]
         public async Task<IActionResult> LogOff()
         {
