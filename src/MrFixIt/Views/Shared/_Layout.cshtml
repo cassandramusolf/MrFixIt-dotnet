@@ -12,54 +12,56 @@
 </head>
 <body>
     @*//Navbar*@
-
-
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">MR. FIX-IT</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">Mr. Fix-It</a>
             </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/">HOME</a></li>
-                <li><a href="/About/Index">ABOUT US</a></li>
-                <li><a href="/Jobs/Index/">HIRE US</a></li>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        @Html.ActionLink("ABOUT", "Index", "About")
+                    </li>
+                    <li>
+                        @Html.ActionLink("HIRE US", "Index", "Jobs")
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.ActionLink("WORKER DASHBOARD", "Index", "Workers")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @Html.ActionLink("REGISTER", "Register", "Account")
+                        </li>
+                    }
 
-            @if (User.Identity.IsAuthenticated)
-            {
-                <li>
-                    @Html.ActionLink("WORKER DASHBOARD", "Index", "Workers")
-                </li>
-            }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li>
+                            @Html.ActionLink("LOG OUT", "LogOff", "Account")
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            @Html.ActionLink("LOG IN", "LogIn", "Account")
+                        </li>
 
-            @if (User.Identity.IsAuthenticated)
-            {
-                <li>
-                    @Html.ActionLink("LOG OUT", "LogOff", "Account")
-                </li>
-            }
+                    }
+
                 </ul>
-
-            @*@if (User.Identity.IsAuthenticated)
-            {
-                @using (Html.BeginForm("LogOff", "Account"))
-                {
-                    <input type="submit" class="btn btn-default btn-lg pull-right heading-button" value="Log out" />
-                }
-            }
-            else
-            {
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/Account/Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <li><a href="/Account/Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                </ul>
-
-            }*@
+            </div>
         </div>
     </nav>
-
-
-    @*Current User Dashboard*@
-
 
 
     <div class="container">
