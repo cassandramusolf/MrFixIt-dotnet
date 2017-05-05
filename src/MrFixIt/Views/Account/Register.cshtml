@@ -7,18 +7,27 @@
 
 @model RegisterViewModel
 
-<h2>Register a new worker</h2>
-<hr />
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-    @Html.LabelFor(m => m.Email)
-    @Html.TextBoxFor(m => m.Email)
+<div class="text-center register-form">
+    <h2>REGISTER AS A NEW WORKER</h2>
+    <hr />
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        <h4>
+            @Html.LabelFor(m => m.Email)
+            @Html.TextBoxFor(m => m.Email)
+        </h4>
 
-    @Html.LabelFor(m => m.Password)
-    @Html.PasswordFor(m => m.Password)
+        <h4>
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+        </h4>
 
-    @Html.LabelFor(m => m.ConfirmPassword)
-    @Html.PasswordFor(m => m.ConfirmPassword)
-
-    <input type="submit" value="Register" />
-}
+        <h4>
+            @Html.LabelFor(m => m.ConfirmPassword)
+            @Html.PasswordFor(m => m.ConfirmPassword)
+        </h4>    
+        <br />
+        
+        <input type="submit" class="btn-lg btn btn-default" value="REGISTER" />
+    }
+</div>
