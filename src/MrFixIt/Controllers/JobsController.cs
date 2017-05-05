@@ -49,9 +49,19 @@ namespace MrFixIt.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Completed()
+        public IActionResult Completed(int id)
         {
+            var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
             return Content("Hello from the controller!", "text/plain");
         }
+
+
+        public IActionResult Edit(int id)
+        {
+            Job thisJob = db.Jobs.FirstOrDefault(items => items.JobId == id);
+            return View(thisJob);
+        }
+
+
     }
 }
