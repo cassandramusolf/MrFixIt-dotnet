@@ -11,10 +11,16 @@
     <input type="hidden" name="id" value="@Model.JobId">
 
     <label for="newActive">Active:</label>
-    <select type="text" name="newActive" value="@Model.Active"></select>
+    <select type="text" name="newActive" value="@Model.Active">
+        <option value="True">Active</option>
+        <option value="False">Inactive</option>
+    </select>
     <br />
-    <label for="newComplete"> Completed:</label>
-    <input type="text" name="newCompleted" value="@Model.Completed" />
-    <br />
-    <button type="submit">Submit</button>
+    <label for="newCompleted"> Completed:</label>
+    <select type="text" name="newCompleted" value="@Model.Active">
+        <option value="True">Completed</option>
+        <option value="False">Incomplete</option>
+    </select>
+        <br />
+        <button type="submit" class="edit-job">Submit</button>
 </form>

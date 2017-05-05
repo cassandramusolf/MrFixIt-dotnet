@@ -3,6 +3,8 @@
     ViewBag.Title = "Mr Fix-It";
 }
 
+@model IEnumerable<MrFixIt.Models.Job>
+
 <div class="text-center">
     <h3>Our Current Jobs</h3>
     @Html.ActionLink("Add a new job", "Create")
@@ -25,9 +27,9 @@
         }
     </ul>
 
-        <button class="edit-form" value="@Job.JobId"> Edit </button> 
+        <button class="edit-form" value="@Job.JobId"> @Job.JobId Edit </button> 
+        <div class="return-edit"></div>
 
     <hr />
 }
 
-    <div class="return-edit"></div>

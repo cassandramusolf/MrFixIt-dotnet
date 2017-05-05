@@ -62,6 +62,17 @@ namespace MrFixIt.Controllers
             return View(thisJob);
         }
 
+        [HttpPost]
+        public IActionResult Edit(bool newCompleted, bool newActive, int id)
+        {
+            Job thisJob = db.Jobs.FirstOrDefault(items => items.JobId == id);
+
+            thisJob.Completed = newCompleted;
+            thisJob.Active = newActive;
+
+            db.SaveChanges();
+            return Json(thisJob);
+        }
 
     }
 }

@@ -42,7 +42,7 @@
         });
     });
 
-    $('.edit-cupcake').submit(function (event) {
+    $('.edit-job').submit(function (event) {
         event.preventDefault();
         $.ajax({
             url: 'Jobs/Edit',
@@ -50,9 +50,8 @@
             dataType: 'json',
             data: $(this).serialize(),
             success: function (result) {
-                var editedJob = result.name;
-                var jobId = result.id.toString();
-                $('#result1').text(editedJob);
+                console.log(result);
+                $('#result1').text(result);
             }
         });
     });
