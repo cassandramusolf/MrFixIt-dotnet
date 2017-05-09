@@ -6,26 +6,39 @@
 @model IEnumerable<MrFixIt.Models.Job>
 
 <div class="text-center">
-    <h3>Our Current Jobs</h3>
-    @Html.ActionLink("Add a new job", "Create")
+    <img src="~/images/plumber.jpg" />
 </div>
+<div class="current-jobs">
+    <h3>OUR CURRENT JOBS</h3>
+    @Html.ActionLink("Add a New Job", "Create")
+</div>
+<br />
+<hr />
 @foreach (var Job in Model)
 {
-    <ul>
-        <li>@Job.Title</li>
-        <ul>
-            <li>@Job.Description</li>
-        </ul>
+    <div class="job-list text-center">
+        <h3>@Job.Title</h3>
+
+        <h4><em>@Job.Description</em></h4>
+
         @if (Job.Worker == null)
         {
-        <li class="btn">This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</li>
+            <h5>This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</h5>
         }
         else
         {
-            <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
+            <h5>This job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</h5>
+        }
+        @if (Job.Active == true)
+        {
+           <h5>Job Status: Active</h5> 
+        }
+        else
+        {
+            <h5>Job Status: Inactive</h5>
 
         }
-    </ul>
 
+    </div>
     <hr />
 }
